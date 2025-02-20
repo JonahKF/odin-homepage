@@ -49,6 +49,7 @@ h6 {
 p {
   text-wrap: pretty;
 }
+
 h1,
 h2,
 h3,
@@ -72,6 +73,23 @@ h6 {
   --grey-black: #494438;
 }
 
+* {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    avenir next,
+    avenir,
+    segoe ui,
+    helvetica neue,
+    Cantarell,
+    Ubuntu,
+    roboto,
+    noto,
+    helvetica,
+    arial,
+    sans-serif;
+}
+
 .monomakh-regular {
   font-family: "Monomakh", serif;
   font-weight: 400;
@@ -79,9 +97,58 @@ h6 {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 65px;
+  border-bottom: 1px solid var(--grey-black);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 70%;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+  height: 27px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+li:has(> img) {
+  margin-right: auto;
+}
+
+li:has(> .language-toggle-container) {
+  margin-left: auto;
 }
 
 h1 {
   font-family: "Monomakh";
   font-weight: 400;
+}
+
+.top-profile-container {
+  display: flex;
+  flex-direction: row;
 }
