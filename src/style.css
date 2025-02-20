@@ -71,6 +71,7 @@ h6 {
   --festive-green: #397652;
   --seal-red: #d80100;
   --grey-black: #494438;
+  --off-white: #efebea;
 }
 
 * {
@@ -96,6 +97,11 @@ h6 {
   font-style: normal;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -104,6 +110,7 @@ body {
 header {
   height: 65px;
   border-bottom: 1px solid var(--grey-black);
+  background: var(--off-white);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -120,7 +127,7 @@ nav {
 nav ul {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 5rem;
   width: 70%;
   padding: 0;
   justify-content: center;
@@ -139,16 +146,240 @@ li:has(> img) {
   margin-right: auto;
 }
 
-li:has(> .language-toggle-container) {
+li:has(> .switch-container) {
   margin-left: auto;
+}
+
+/* Language Toggle Start */
+/* Adapted from https://uiverse.io/JaydipPrajapati1910/splendid-panda-57 */
+.switch-container,
+.switch-container > * {
+  box-sizing: content-box;
+}
+
+.switch-container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+  top: 3.5px;
+}
+
+.switch-container i {
+  display: inline-block;
+  position: relative;
+  top: -9px;
+}
+
+label {
+  font-size: 13px;
+  color: #424242;
+  font-weight: 500;
+}
+
+.btn-language-switch {
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+}
+
+.btn-language-switch > label.btn-language-switch-inner {
+  margin: 0px;
+  width: 100px;
+  height: 30px;
+  background: #e0e0e0;
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.btn-language-switch > label.btn-language-switch-inner:before {
+  content: attr(data-on);
+  position: absolute;
+  font-size: 12px;
+  font-weight: 500;
+  top: 7px;
+  right: 20px;
+}
+
+.btn-language-switch > label.btn-language-switch-inner:after {
+  content: attr(data-off);
+  width: 50px;
+  height: 26px;
+  background: #fff;
+  border-radius: 26px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 6px -2px #111;
+  padding: 5px 0px;
+}
+
+.btn-language-switch > .alert {
+  display: none;
+  background: #ff9800;
+  border: none;
+  color: #fff;
+}
+
+.btn-language-switch input[type="checkbox"] {
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  margin: 0px;
+}
+
+.btn-language-switch
+  input[type="checkbox"]:checked
+  + label.btn-language-switch-inner {
+  background: var(--festive-green);
+  color: #fff;
+}
+
+.btn-language-switch
+  input[type="checkbox"]:checked
+  + label.btn-language-switch-inner:after {
+  content: attr(data-on);
+  left: 48px;
+  background: #fff;
+  color: var(--festive-green);
+}
+
+.btn-language-switch
+  input[type="checkbox"]:checked
+  + label.btn-language-switch-inner:before {
+  content: attr(data-off);
+  right: auto;
+  left: 20px;
+  color: #fff;
+}
+
+.btn-language-switch input[type="checkbox"]:checked ~ .alert {
+  display: block;
+}
+
+.dark-preview {
+  background: #0d0d0d;
+}
+
+.white-preview {
+  background: #fff;
+}
+/* Language Toggle End */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  width: 80%;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+hr {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 5px solid var(--grey-black);
+  border-radius: 50%;
+}
+
+section#profile {
+  padding-top: 125px;
 }
 
 h1 {
   font-family: "Monomakh";
   font-weight: 400;
+  font-size: 4.5rem;
+}
+
+h1.name-header {
+  position: relative;
+  left: -5px;
 }
 
 .top-profile-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  gap: 90px;
+}
+
+.profile-img-container {
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
+.profile-img-container img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.blurb {
+  width: 500px;
+}
+
+.blurb > button {
+  margin-top: 22px;
+}
+
+.about-me-wrapper {
+  width: 100%;
+  margin-top: 125px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h2 {
+  font-family: "Monomakh";
+  font-weight: 400;
+  font-size: 2.3rem;
+}
+
+.skills-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skills-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--grey-black);
+}
+
+.skills-card {
+  border: 1px solid var(--festive-green);
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

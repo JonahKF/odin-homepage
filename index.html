@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jonah Kachur</title>
+    <title>Jonah's Webzone</title>
   </head>
 
   <body>
@@ -13,21 +13,40 @@
           <li>
             <img src="#" alt="Site Logo" />
           </li>
+
           <li>
-            <button>Profile</button>
+            <a href="#profile">Profile</a>
           </li>
+
           <li>
-            <button>Work</button>
+            <a href="#skills">Skills</a>
           </li>
+
           <li>
-            <button>Contact</button>
+            <a href="#work">Work</a>
           </li>
+
           <li>
-            <div class="language-toggle-container">
-              <button class="language-toggle">
-                <span class="active">ENG</span>
-                <span>JP</span>
-              </button>
+            <a href="#contact">Contact</a>
+          </li>
+
+          <li>
+            <div class="switch-container">
+              <label class="switch btn-language-switch">
+                <input
+                  value="1"
+                  id="language_mode"
+                  name="language_mode"
+                  type="checkbox"
+                />
+                <label
+                  class="btn-language-switch-inner"
+                  data-off="EN"
+                  data-on="JP"
+                  for="language_mode"
+                >
+                </label>
+              </label>
             </div>
           </li>
         </ul>
@@ -35,22 +54,73 @@
     </header>
 
     <main>
-      <section class="profile">
-        <div class="top-profile-container">
-          <div class="profile-img-container">
-            <img src="#" alt="Picture of the website creator" />
+      <section id="profile">
+        <div class="container">
+          <div class="top-profile-container">
+            <div class="profile-img-container">
+              <img
+                src="/public/imgs/self-2.jpg"
+                alt="Picture of the website creator"
+              />
+            </div>
+
+            <div class="name-and-blurb-container">
+              <h1 class="name-header">Jonah Oho</h1>
+              <div class="blurb">
+                Web Developer and Digital Marketing Consultant based in Japan.
+                <br />
+                Looking for a bilingual engineer?
+                <br />
+                <button class="profile-contact-btn">Get in touch.</button>
+              </div>
+            </div>
           </div>
 
-          <div class="name-and-blurb-container">
-            <h1 class="name-header">Jonah Kachur</h1>
-            <div class="blurb"></div>
+          <div class="about-me-wrapper">
+            <h2>About</h2>
+            <p class="about-me-text">
+              I am a bilingual Digital Marketing professional, living in Japan
+              since 2015. After graduating from International Christian
+              University in Tokyo in 2021, I've helped several brands get
+              started in Japan with website analysis, tag management, data
+              visualization and more. You can find me at the intersection
+              between data and UX.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="work"></section>
+      <hr />
 
-      <section class="contact"></section>
+      <section id="skills">
+        <div class="container">
+          <div class="skills-wrapper">
+            <h2>Skills</h2>
+            <div class="skills-card-wrapper">
+              <div class="skills-card"></div>
+              <div class="skills-card"></div>
+              <div class="skills-card"></div>
+              <div class="skills-card"></div>
+              <div class="skills-card"></div>
+              <div class="skills-card"></div>
+              <div class="skills-card"></div>
+              <div class="skills-card"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="work">
+        <div class="container"></div>
+      </section>
+
+      <hr />
+
+      <section id="contact">
+        <div class="container"></div>
+      </section>
     </main>
 
     <footer></footer>
