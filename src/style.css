@@ -115,6 +115,9 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
 }
 
 nav {
@@ -296,13 +299,13 @@ section {
 
 hr {
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   border: 5px solid var(--grey-black);
   border-radius: 50%;
 }
 
 section#profile {
-  padding-top: 125px;
+  padding-top: 139px;
 }
 
 h1 {
@@ -314,6 +317,12 @@ h1 {
 h1.name-header {
   position: relative;
   left: -5px;
+}
+
+.name-header .greeting {
+  font-size: 0.6em;
+  font-weight: normal;
+  font-family: inherit;
 }
 
 .top-profile-container {
@@ -336,11 +345,30 @@ h1.name-header {
 }
 
 .blurb {
-  width: 500px;
+  width: 530px;
 }
 
-.blurb > button {
-  margin-top: 22px;
+.blurb > br ~ p {
+  margin-bottom: 16px;
+}
+
+.blurb > p > a {
+  border: 1px solid rgba(55, 55, 55, 0.6);
+  border-radius: 3px;
+  padding: 5px 12px 5px 12px;
+  display: inline-flex;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.blurb > p > a > kbd {
+  aspect-ratio: 1 / 1;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  border: 1px solid rgba(55, 55, 55, 0.3);
 }
 
 .about-me-wrapper {
@@ -349,6 +377,50 @@ h1.name-header {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.about-me-grid {
+  /* border: 1px solid var(--grey-black); */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 220px 120px 100px;
+  gap: 20px;
+  width: 100%;
+  padding: 12px;
+}
+
+.about-card {
+  background: var(--off-white);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 200ms;
+}
+
+.work-card {
+  grid-column: 1 / span 2;
+}
+
+.hobbies-card {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.hometown-card,
+.kamakura-card {
+  grid-row: 2 / span 2;
+}
+
+.fun-card {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.education-card {
+  grid-column: 4;
+  grid-row: span 3;
 }
 
 h2 {
@@ -364,22 +436,36 @@ h2 {
   gap: 10px;
 }
 
-.skills-card-wrapper {
+.skills-card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
-  padding: 20px;
-  border: 1px solid var(--grey-black);
+  padding: 12px;
+  /* border: 1px solid var(--grey-black); */
 }
 
 .skills-card {
-  border: 1px solid var(--festive-green);
+  border: 1px solid var(--off-white);
   border-radius: 8px;
   padding: 20px;
   min-height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 200ms;
+}
+
+.skills-card i {
+  font-size: 5.3rem;
+}
+
+.skills-card img {
+  height: 92px;
+}
+
+.skills-card:hover {
+  background: var(--off-white);
+  transition: 200ms;
 }
