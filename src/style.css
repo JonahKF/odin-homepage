@@ -349,7 +349,7 @@ h1.name-header {
 }
 
 .blurb > br ~ p {
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 .blurb > p > a {
@@ -359,6 +359,12 @@ h1.name-header {
   display: inline-flex;
   gap: 14px;
   cursor: pointer;
+}
+
+.blurb > p > a > i {
+  position: relative;
+  top: 4.3px;
+  left: 1px;
 }
 
 .blurb > p > a > kbd {
@@ -409,8 +415,28 @@ h1.name-header {
 }
 
 .hometown-card,
-.kamakura-card {
+.name-card {
   grid-row: 2 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hometown-card {
+  gap: 5px;
+}
+
+.hometown-card :nth-child(2) {
+  font-size: 0.8em;
+}
+
+.name-card h3 {
+  padding: 0;
+  line-height: inherit;
+  margin-top: -23px;
 }
 
 .fun-card {
@@ -421,7 +447,23 @@ h1.name-header {
 .education-card {
   grid-column: 4;
   grid-row: span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
+.education-card h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.down-arrow {
+  font-size: 2em;
+}
+/* Add Doshisha next to down arrow, in absolute cell */
 
 h2 {
   font-family: "Monomakh";
