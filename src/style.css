@@ -389,7 +389,7 @@ h1.name-header {
   /* border: 1px solid var(--grey-black); */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 220px 120px 100px;
+  grid-template-rows: 220px 100px 120px;
   gap: 20px;
   width: 100%;
   padding: 12px;
@@ -405,13 +405,52 @@ h1.name-header {
   transition: 200ms;
 }
 
+.about-card h3 {
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+  padding-left: 18px;
+  height: 28px;
+  width: 100%;
+  text-align: start;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+
+  background-color: lightsalmon;
+}
+
 .work-card {
   grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 0.9em;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+.work-card a {
+  text-decoration: underline;
+  transition: 200ms;
+}
+
+.work-card a:hover {
+  color: var(--grey-black);
+  transition: 200ms;
 }
 
 .hobbies-card {
   grid-column: 3;
   grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
 }
 
 .hometown-card,
@@ -419,44 +458,32 @@ h1.name-header {
   grid-row: 2 / span 2;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   text-align: center;
   position: relative;
 
-  padding: 15px;
+  padding: 0px;
   overflow: hidden;
-}
-
-.hometown-card {
-  gap: 5px;
 }
 
 .hometown-card :nth-child(2) {
   font-size: 0.8em;
 }
 
-.name-card h3 {
+.name-card h4 {
   padding: 0;
   line-height: 1.2;
-  margin-top: -18px;
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  margin-top: -11px;
+  font-size: clamp(0.7rem, 1.8vw, 1rem);
   width: 100%;
   text-align: center;
 }
 
 .name-card p {
   font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-  width: 100%;
-}
-
-.name-card :nth-child(4) {
-  position: relative;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 90%;
 }
 
 .flag-emoji {
@@ -479,12 +506,13 @@ h1.name-header {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 0;
+  justify-content: start;
   align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
-.education-card h3 {
+.education-card h4 {
   margin: 0;
   font-size: 1em;
 }
