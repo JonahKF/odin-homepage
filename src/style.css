@@ -108,7 +108,7 @@ body {
 }
 
 header {
-  height: 65px;
+  height: 45px;
   border-bottom: 1px solid var(--grey-black);
   background: var(--off-white);
   display: flex;
@@ -165,7 +165,7 @@ li:has(> .switch-container) {
   vertical-align: middle;
   text-align: center;
   position: relative;
-  top: 3.5px;
+  top: 2.75px;
 }
 
 .switch-container i {
