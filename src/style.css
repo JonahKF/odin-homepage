@@ -159,6 +159,10 @@ li:has(> img) {
   margin-right: auto;
 }
 
+.site-logo {
+  height: 20px;
+}
+
 li:has(> .switch-container) {
   margin-left: auto;
 }
@@ -322,7 +326,7 @@ section#profile {
 h1 {
   font-family: "Monomakh";
   font-weight: 400;
-  font-size: 4.5rem;
+  font-size: 2.5rem;
 }
 
 h1.name-header {
@@ -331,7 +335,7 @@ h1.name-header {
 }
 
 .name-header .greeting {
-  font-size: 0.6em;
+  font-size: 0.9em;
   font-weight: normal;
   font-family: inherit;
 }
@@ -349,8 +353,8 @@ h1.name-header {
 }
 
 .profile-img-container img {
-  width: 300px;
-  height: 300px;
+  height: 320px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
 }
