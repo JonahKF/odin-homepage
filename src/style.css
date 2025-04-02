@@ -327,6 +327,7 @@ h1 {
   font-family: "Monomakh";
   font-weight: 400;
   font-size: 2.5rem;
+  margin-bottom: -12px;
 }
 
 h1.name-header {
@@ -367,6 +368,10 @@ h1.name-header {
   /* margin-bottom: 16px; */
 }
 
+p > a.profile-contact-btn {
+  margin-top: 3px;
+}
+
 .blurb > p > a {
   border: 1px solid rgba(55, 55, 55, 0.6);
   border-radius: 3px;
@@ -390,6 +395,7 @@ h1.name-header {
   justify-content: center;
   font-size: 0.8em;
   border: 1px solid rgba(55, 55, 55, 0.3);
+  border-radius: 3px;
 }
 
 .profile-contact-btn {
