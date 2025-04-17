@@ -73,6 +73,7 @@
                 alt="Picture of the website creator"
                 class="self-photo"
               />
+              <div class="img-blob"></div>
             </div>
 
             <div class="name-and-blurb-container">
@@ -122,7 +123,7 @@
 
               <div class="about-card hobbies-card">
                 <h3>Hobbies</h3>
-                Hobbies
+                <div>Hobbies</div>
               </div>
 
               <div class="about-card education-card">
@@ -226,6 +227,23 @@
     </main>
 
     <footer></footer>
+
+    <svg>
+      <filter id="noiseFilter">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.6"
+          stitchTiles="stitch"
+        />
+        <feColorMatrix
+          in="colorNoise"
+          type="matrix"
+          values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"
+        />
+        <feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+        <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+      </filter>
+    </svg>
 
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/email-text-conversion.js"></script>
