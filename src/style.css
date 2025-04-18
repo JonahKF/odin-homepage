@@ -142,7 +142,7 @@ header {
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 81.5%;
+  width: 91.5%;
   max-width: none;
   align-self: center;
   padding-top: 12px;
@@ -162,7 +162,7 @@ nav {
   border-radius: 10px;
   border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
   background: radial-gradient(
-    126.42% 76.6% at 50% 32.26%,
+    126.42% 76.6% at 50% 12.26%,
     rgba(93.7%, 92.2%, 91.8%, 0.1),
     rgba(2, 5, 11, 0.13)
   );
@@ -203,6 +203,15 @@ li:has(> .switch-container) {
 }
 
 nav ul > li > a {
+  border-radius: 5px;
+  padding: 3px 5px;
+  transition: all 300ms;
+}
+
+nav ul > li > a:hover {
+  background: rgba(5, 3, 8, 0.3);
+  color: #fff;
+  transition: all 300ms;
 }
 
 /* Language Toggle Start */
@@ -229,7 +238,7 @@ nav ul > li > a {
 label {
   font-size: 13px;
   color: #424242;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .btn-language-switch {
@@ -240,9 +249,10 @@ label {
 
 .btn-language-switch > label.btn-language-switch-inner {
   margin: 0px;
-  width: 100px;
-  height: 30px;
-  background: #e0e0e0;
+  width: 74px;
+  height: 35px;
+  /* background: #e0e0e0; */
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
   border-radius: 26px;
   overflow: hidden;
   position: relative;
@@ -257,14 +267,17 @@ label {
   font-size: 12px;
   font-weight: 500;
   top: 7px;
-  right: 20px;
+  right: 13px;
+  color: var(--text);
+  opacity: 0.5;
 }
 
 .btn-language-switch > label.btn-language-switch-inner:after {
   content: attr(data-off);
-  width: 50px;
-  height: 26px;
-  background: #fff;
+  width: 30px;
+  height: 29px;
+  background: rgba(64, 123, 220, 0.8);
+  color: var(--text);
   border-radius: 26px;
   position: absolute;
   left: 2px;
@@ -283,8 +296,8 @@ label {
 }
 
 .btn-language-switch input[type="checkbox"] {
-  width: 50px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   opacity: 0;
   position: absolute;
   top: 0;
@@ -296,7 +309,6 @@ label {
 .btn-language-switch
   input[type="checkbox"]:checked
   + label.btn-language-switch-inner {
-  background: var(--seal-red);
   color: #fff;
 }
 
@@ -304,9 +316,8 @@ label {
   input[type="checkbox"]:checked
   + label.btn-language-switch-inner:after {
   content: attr(data-on);
-  left: 48px;
-  background: #fff;
-  color: var(--seal-red);
+  left: 40px;
+  background: var(--seal-red);
 }
 
 .btn-language-switch
@@ -314,7 +325,7 @@ label {
   + label.btn-language-switch-inner:before {
   content: attr(data-off);
   right: auto;
-  left: 20px;
+  left: 11px;
   color: #fff;
 }
 
@@ -342,7 +353,7 @@ section {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -358,7 +369,7 @@ hr {
 }
 
 section#profile {
-  padding-top: 139px;
+  padding-top: 169px;
 }
 
 h1 {
@@ -381,9 +392,10 @@ h1.name-header {
 
 .top-profile-container {
   display: flex;
+  max-width: 100%;
   flex-direction: row;
   align-items: center;
-  gap: 160px;
+  gap: 140px;
 }
 
 .profile-img-container {
@@ -414,7 +426,7 @@ h1.name-header {
 }
 
 .blurb {
-  width: 530px;
+  width: auto;
 }
 
 p > a.profile-contact-btn {
@@ -422,16 +434,46 @@ p > a.profile-contact-btn {
 }
 
 .blurb > p > a {
-  border: 1px solid rgba(55, 55, 55, 0.6);
+  position: relative;
+  background: radial-gradient(
+    36.42% 76.6% at 50% 32.26%,
+    rgba(93.7%, 92.2%, 91.8%, 0.1),
+    rgba(2, 5, 11, 0.13)
+  );
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   padding: 5px 12px 5px 12px;
   display: inline-flex;
   gap: 14px;
   cursor: pointer;
+  overflow: hidden;
+}
+
+p > a.profile-contact-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background: radial-gradient(
+    76.42% 76.6% at 50% 32.26%,
+    rgba(93.7%, 92.2%, 91.8%, 0.1),
+    rgba(153, 138, 118, 0.31)
+  );
+  transition: opacity 300ms;
+  z-index: 0;
+}
+
+.blurb > p > a > i,
+.blurb > p > a > kbd {
+  position: relative;
+  z-index: 1;
 }
 
 .blurb > p > a > i {
-  position: relative;
   top: 4.3px;
   left: 1px;
 }
@@ -443,7 +485,7 @@ p > a.profile-contact-btn {
   align-items: center;
   justify-content: center;
   font-size: 0.8em;
-  border: 1px solid rgba(55, 55, 55, 0.3);
+  border: 1px solid rgba(55, 55, 55, 0.8);
   border-radius: 3px;
 }
 
@@ -451,9 +493,9 @@ p > a.profile-contact-btn {
   transition: 300ms;
 }
 
-.profile-contact-btn:hover {
-  background-color: var(--off-white);
-  transition: 300ms;
+p > a.profile-contact-btn:hover::before {
+  opacity: 1;
+  transition: opacity 300ms;
 }
 
 .about-me-wrapper {
@@ -472,7 +514,7 @@ p > a.profile-contact-btn {
 
 .about-me-grid {
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 220px 100px 120px;
+  grid-template-rows: 220px 100px 150px;
   gap: 20px;
   width: 100%;
 }
@@ -486,7 +528,7 @@ p > a.profile-contact-btn {
   border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -499,8 +541,10 @@ p > a.profile-contact-btn {
 .about-card h3 {
   font-family: "Monomakh";
   border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.15);
   margin-bottom: 10px;
   padding-top: 15px;
+  padding-bottom: 15px;
   position: relative;
   height: 28px;
   width: 100%;
@@ -519,7 +563,6 @@ p > a.profile-contact-btn {
   justify-content: start;
   align-items: center;
   text-align: center;
-  padding: 0;
 }
 
 .work-card a {
@@ -538,7 +581,6 @@ p > a.profile-contact-btn {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0;
   justify-content: start;
   align-items: center;
   text-align: center;
@@ -554,13 +596,18 @@ p > a.profile-contact-btn {
   justify-content: start;
   text-align: center;
   position: relative;
-
-  padding: 0px;
   overflow: hidden;
 }
 
 .hometown-card :nth-child(3) {
   font-size: 0.8em;
+}
+
+.hometown-card > .map-container {
+  background: pink;
+  margin-top: 9px;
+  height: 120px;
+  width: 100%;
 }
 
 .name-card h4 {
@@ -577,18 +624,26 @@ p > a.profile-contact-btn {
   width: 90%;
 }
 
-.flag-emoji {
-  position: relative;
-  font-size: 1.8em;
-  top: 0;
-  right: -5px;
-  margin-left: 5px;
-  display: inline-block;
-}
-
 .fun-card {
   grid-column: 3;
   grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+}
+
+.fun-card > .book-title {
+  font-size: 1.3rem;
+  font-family: "Monomakh";
+  margin-top: 3px;
+}
+
+.fun-card > .author {
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-top: 3px;
 }
 
 .education-card {
@@ -597,7 +652,6 @@ p > a.profile-contact-btn {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0;
   justify-content: start;
   align-items: center;
   text-align: center;
