@@ -192,6 +192,7 @@ li {
 li:has(> img) {
   margin-right: auto;
   filter: invert(1);
+  width: 117px;
 }
 
 .site-logo {
@@ -222,11 +223,11 @@ nav ul > li > a:hover {
 }
 
 .switch-container {
-  display: table-cell;
+  display: flex;
   vertical-align: middle;
   text-align: center;
   position: relative;
-  top: 2.75px;
+  /* top: 2.75px; */
 }
 
 .switch-container i {
@@ -317,7 +318,11 @@ label {
   + label.btn-language-switch-inner:after {
   content: attr(data-on);
   left: 40px;
+  padding-left: 1px;
   background: var(--seal-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-language-switch
@@ -339,6 +344,19 @@ label {
 
 .white-preview {
   background: #fff;
+}
+
+.switch-container > kbd {
+  width: 24px;
+  height: 24px;
+  align-self: center;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  border: 1px solid rgba(55, 55, 55, 0.8);
+  border-radius: 3px;
 }
 /* Language Toggle End */
 
@@ -582,8 +600,25 @@ p > a.profile-contact-btn:hover::before {
   flex-direction: column;
   gap: 20px;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   text-align: center;
+}
+
+.hobbies-card > ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.hobbies-card > ul > li > i {
+  font-size: 1.3rem;
+  margin-right: 10px;
+  width: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hometown-card,
@@ -604,10 +639,17 @@ p > a.profile-contact-btn:hover::before {
 }
 
 .hometown-card > .map-container {
-  background: pink;
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.15);
+  border-radius: 8px;
   margin-top: 9px;
   height: 120px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-style: italic;
 }
 
 .name-card h4 {
@@ -651,15 +693,30 @@ p > a.profile-contact-btn:hover::before {
   grid-row: span 3;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   justify-content: start;
   align-items: center;
   text-align: center;
 }
 
+.education-card > .college-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
 .education-card h4 {
   margin: 0;
-  font-size: 1em;
+  font-size: 1.1em;
+  font-family: "Monomakh";
+  margin-bottom: 8px;
+}
+
+.education-card p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
 }
 
 .down-arrow {
@@ -793,4 +850,92 @@ h2 {
 
 .skills-card img {
   height: 92px;
+}
+
+.contact-wrapper {
+  width: 100%;
+  margin-top: 125px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 90px;
+  font-size: 1.5rem;
+  background: radial-gradient(
+    126.42% 76.6% at 50% 32.26%,
+    rgba(93.7%, 92.2%, 91.8%, 0.1),
+    rgba(2, 5, 11, 0.13)
+  );
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 20px 11px 20px;
+}
+
+#email-text-conversion {
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 480px) {
+  html,
+  body {
+    width: 100vw;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+  }
+
+  kbd {
+    display: none !important;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .desktop-nav-item {
+    display: none !important;
+  }
+
+  .top-profile-container {
+    align-self: center;
+    flex-direction: column;
+    gap: 70px;
+    height: 100vh;
+  }
+
+  .top-profile-container h1 {
+    font-size: 2.8rem;
+  }
+
+  .profile-img-container,
+  .profile-img-container > * {
+    width: 280px;
+    height: 280px;
+    max-height: 280px;
+  }
+
+  .img-blob {
+    height: 200px;
+    max-height: 200px;
+    width: 200px;
+  }
+
+  .name-and-blurb-container {
+    text-align: center;
+  }
 }
