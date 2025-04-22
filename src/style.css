@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Monomakh&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caprasimo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap");
 
 /*
   Josh's Custom CSS Reset
@@ -95,6 +96,13 @@ h6 {
     sans-serif;
 }
 
+* .lang-text[lang="ja"] {
+  font-family:
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック Medium",
+    "Yu Gothic Medium", 游ゴシック体, YuGothic, メイリオ, Meiryo, Osaka,
+    "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
 .monomakh-regular {
   font-family: "Monomakh", serif;
   font-weight: 400;
@@ -107,12 +115,19 @@ h6 {
   font-style: normal;
 }
 
+.mochiy-pop-one-regular {
+  font-family: "Mochiy Pop One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--bg);
@@ -142,12 +157,10 @@ header {
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 91.5%;
+  width: 80%;
   max-width: none;
   align-self: center;
   padding-top: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
   z-index: 100;
 }
 
@@ -155,9 +168,10 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  justify-self: center;
   height: 100%;
   border-radius: 10px;
   border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
@@ -357,6 +371,21 @@ label {
   font-size: 0.8em;
   border: 1px solid rgba(55, 55, 55, 0.8);
   border-radius: 3px;
+  transition: all 150ms ease;
+  z-index: 10;
+}
+
+.switch-container .kbd-blob {
+  position: absolute;
+  filter: blur(10px);
+  background: #859900;
+  height: 20px;
+  width: 20px;
+  right: 3px;
+  top: 6px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 100ms ease;
 }
 /* Language Toggle End */
 
@@ -373,7 +402,7 @@ section {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  justify-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -390,10 +419,18 @@ section#profile {
   padding-top: 169px;
 }
 
-h1 {
+h1,
+h1 > *.lang-text[lang="en"] {
   font-family: "Caprasimo";
   font-weight: 400;
   font-size: 2.5rem;
+  margin-bottom: -12px;
+}
+
+h1 > *.lang-text[lang="ja"] {
+  font-family: "Mochiy Pop One";
+  font-weight: 400;
+  font-size: 2rem;
   margin-bottom: -12px;
 }
 
@@ -441,6 +478,11 @@ h1.name-header {
   height: 280px;
   width: 280px;
   z-index: -1;
+}
+
+.name-and-blurb-container,
+.about-me-wrapper {
+  animation: 1.5s fadeInDown;
 }
 
 .blurb {
@@ -507,6 +549,19 @@ p > a.profile-contact-btn::before {
   border-radius: 3px;
 }
 
+.blurb .kbd-blob {
+  position: absolute;
+  filter: blur(10px);
+  background: #859900;
+  height: 20px;
+  width: 20px;
+  right: 13px;
+  top: 5px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 100ms ease;
+}
+
 .profile-contact-btn {
   transition: 300ms;
 }
@@ -554,8 +609,6 @@ p > a.profile-contact-btn:hover::before {
   position: relative;
 }
 
-/* Hover card change final rgba value in gradient to add soft colors (blue, yellow, etc). */
-
 .about-card h3 {
   font-family: "Monomakh";
   border-radius: 8px 8px 0 0;
@@ -570,6 +623,16 @@ p > a.profile-contact-btn:hover::before {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.about-card p {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.about-card .lang-text[lang="ja"] {
+  font-size: clamp(0.5rem, 1.2vw, 0.92rem);
+  text-align: start;
+  margin-top: -2px;
 }
 
 .work-card {
@@ -605,16 +668,17 @@ p > a.profile-contact-btn:hover::before {
 }
 
 .hobbies-card > ul {
-  padding-left: 20px;
+  padding-left: 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  text-align: start;
+  gap: 12px;
   font-size: 1rem;
 }
 
 .hobbies-card > ul > li > i {
   font-size: 1.3rem;
-  margin-right: 10px;
+  margin-right: 16px;
   width: 26px;
   display: flex;
   justify-content: center;
@@ -656,9 +720,13 @@ p > a.profile-contact-btn:hover::before {
   padding: 0;
   line-height: 1.2;
   margin-top: -11px;
-  font-size: clamp(0.7rem, 1.8vw, 1rem);
+  font-size: clamp(0.7rem, 1.8vw, 1.1rem);
   width: 100%;
   text-align: center;
+}
+
+.name-card h4 .lang-text[lang="ja"] {
+  font-size: clamp(0.7rem, 1.8vw, 1.1rem);
 }
 
 .name-card p {
@@ -854,7 +922,7 @@ h2 {
 
 .contact-wrapper {
   width: 100%;
-  margin-top: 125px;
+  /* margin-top: 125px; */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -882,6 +950,99 @@ h2 {
   font-weight: 600;
 }
 
+footer {
+  width: 100%;
+  font-size: 0.9rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 4px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .about-me-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
+  }
+
+  .work-card {
+    grid-column: 1 / span 1;
+    grid-row: 1;
+    height: auto;
+    min-height: 220px;
+  }
+
+  .hobbies-card {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+    height: auto;
+    min-height: 140px;
+  }
+
+  .hobbies-card ul {
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 30px;
+    font-size: 1.3em;
+    padding: 0;
+  }
+
+  .education-card {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    height: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .hometown-card {
+    grid-column: 2;
+    grid-row: 2;
+    height: auto;
+    min-height: 150px;
+  }
+
+  .name-card {
+    grid-column: 2;
+    grid-row: 1;
+    height: auto;
+    min-height: 230px;
+  }
+
+  .fun-card {
+    grid-column: 2;
+    grid-row: 3;
+    height: auto;
+    min-height: 140px;
+  }
+
+  .about-card p {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  }
+
+  .about-card li {
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  }
+
+  .about-card h3 {
+    font-size: clamp(0.9rem, 1.8vw, 1.5rem) !important;
+  }
+
+  .about-card {
+    padding: 10px 15px 15px 15px;
+  }
+
+  .education-card {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   html,
   body {
@@ -889,6 +1050,7 @@ h2 {
   }
 
   main {
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -900,10 +1062,19 @@ h2 {
   }
 
   header {
-    width: 100%;
+    width: 90%;
+    /* padding: 12px 12px 0 12px; */
   }
 
   nav {
+    width: 100%;
+  }
+
+  section {
+    width: 90%;
+  }
+
+  .container {
     width: 100%;
   }
 
@@ -915,7 +1086,7 @@ h2 {
     align-self: center;
     flex-direction: column;
     gap: 70px;
-    height: 100vh;
+    height: 90vh;
   }
 
   .top-profile-container h1 {
@@ -937,5 +1108,109 @@ h2 {
 
   .name-and-blurb-container {
     text-align: center;
+  }
+
+  .about-me-wrapper {
+    margin-top: 0;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: none;
+  }
+
+  .about-me-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .about-card {
+    width: 100%;
+    height: auto;
+    padding: 10px 15px 30px 15px;
+  }
+
+  .about-card p {
+    font-size: 1.1rem;
+  }
+
+  .about-card li {
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  }
+
+  .about-card h3 {
+    font-size: clamp(1.2rem, 2.1vw, 2.2rem) !important;
+    top: -2px;
+  }
+
+  .name-card h4 {
+    font-size: clamp(1.2rem, 2.1vw, 2.2rem) !important;
+    margin-bottom: 3px;
+  }
+
+  .name-card :nth-child(4),
+  .name-card :nth-child(5) {
+    display: none;
+  }
+
+  .hobbies-card ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .fun-card {
+    display: none;
+  }
+
+  .skills-wrapper,
+  .contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 200px);
+    gap: 18px;
+  }
+
+  .skills-card {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  .contact-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .contact-text-wrapper :first-child {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
