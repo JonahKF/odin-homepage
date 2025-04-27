@@ -52,6 +52,51 @@ const screenController = () => {
       kbd.nextSibling.nextSibling.style.opacity = "0";
     });
   });
+
+  const skillCards = document.querySelectorAll(".skills-card");
+  skillCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const cardClass = Array.from(card.classList).find((cls) =>
+        [
+          "js",
+          "python",
+          "git",
+          "ga",
+          "tableau",
+          "looker",
+          "ads",
+          "bigquery",
+        ].includes(cls),
+      );
+
+      console.log("Click!");
+
+      const dialog = document.querySelector(`dialog#${cardClass}`);
+
+      if (dialog) {
+        dialog.showModal();
+      }
+    });
+  });
+
+  const closeButtons = document.querySelectorAll(".modal-close-btn");
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const dialog = button.closest("dialog");
+      if (dialog) {
+        dialog.close();
+      }
+    });
+  });
+
+  const dialogs = document.querySelectorAll("dialog");
+  dialogs.forEach((dialog) => {
+    dialog.addEventListener("mousedown", (event) => {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+  });
 };
 
 document.addEventListener("DOMContentLoaded", screenController);
