@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Monomakh&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caprasimo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap");
 
 /*
   Josh's Custom CSS Reset
@@ -118,6 +119,13 @@ h6 {
 .mochiy-pop-one-regular {
   font-family: "Mochiy Pop One", sans-serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+.noto-serif-jp-bold {
+  font-family: "Noto Serif JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -734,7 +742,7 @@ p > a.profile-contact-btn:hover::before {
 
 .name-card p {
   font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-  width: 90%;
+  /* width: 90%; */
 }
 
 .name-card p .lang-text[lang="ja"] {
@@ -793,7 +801,7 @@ p > a.profile-contact-btn:hover::before {
 }
 
 .education-card h4 .lang-text[lang="ja"] {
-  font-size: clamp(0.7rem, 1.8vw, 1.2rem);
+  font-size: clamp(0.7rem, 1.3vw, 1.2rem);
   position: relative;
   left: -6px;
 }
@@ -823,8 +831,8 @@ h2 {
 }
 
 .skills-card-grid {
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
 }
@@ -869,15 +877,15 @@ h2 {
   );
 }
 
-.skills-card.python::before {
+.skills-card.css::before {
   background: radial-gradient(
     126.42% 76.6% at 50% 32.26%,
     rgba(93.7%, 92.2%, 91.8%, 0.1),
-    rgba(94.1%, 85.9%, 31%, 0.21)
+    rgba(64, 123, 220, 0.21)
   );
 }
 
-.skills-card.git::before {
+.skills-card.html::before {
   background: radial-gradient(
     126.42% 76.6% at 50% 32.26%,
     rgba(93.7%, 92.2%, 91.8%, 0.1),
@@ -925,6 +933,14 @@ h2 {
   );
 }
 
+.skills-card.replit::before {
+  background: radial-gradient(
+    126.42% 76.6% at 50% 32.26%,
+    rgba(93.7%, 92.2%, 91.8%, 0.1),
+    rgba(242, 98, 8, 0.31)
+  );
+}
+
 .skills-card:hover::before {
   opacity: 1;
 }
@@ -958,9 +974,9 @@ dialog::backdrop {
   border: none;
   color: var(--text);
   background: radial-gradient(
-    126.42% 76.6% at 50% 32.26%,
-    rgba(93.7%, 92.2%, 91.8%, 0.08),
-    rgba(2, 5, 11, 0.097)
+    106.42% 76.6% at 80% 32.26%,
+    rgba(93.7%, 92.2%, 91.8%, 0),
+    rgba(2, 5, 11, 0.517)
   );
   border-radius: 12px;
   backdrop-filter: blur(20px);
@@ -991,12 +1007,12 @@ dialog::backdrop {
 
 .skills-modal > button > i {
   font-size: 1.4em;
-  color: var(--text);
+  color: #887f75;
   transition: all 300ms;
 }
 
 .skills-modal > button:hover > i {
-  color: #887f75;
+  color: var(--text);
   transition: all 300ms;
 }
 
@@ -1022,10 +1038,22 @@ dialog::backdrop {
   font-size: 3.5rem;
 }
 
-.modal-header h3 {
+.modal-header img {
+  height: 56px;
+  width: 56px;
+}
+
+.modal-header h3,
+.modal-header h3 > span {
   font-family: "Monomakh";
   font-size: 2.2rem;
   font-weight: 400;
+}
+
+.modal-header h3 > span.lang-text[lang="ja"] {
+  font-family: "Noto Serif JP";
+  font-weight: 800;
+  font-size: 0.95em;
 }
 
 .modal-body {
@@ -1034,11 +1062,17 @@ dialog::backdrop {
   gap: 25px;
 }
 
-.modal-body h4 {
+.modal-body h4,
+.modal-body h4 > span {
   font-family: "Monomakh";
   font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.modal-body h4 > span.lang-text[lang="ja"] {
+  font-family: "Noto Serif JP";
+  font-weight: 600;
 }
 
 .skill-proficiency {
@@ -1070,11 +1104,16 @@ dialog::backdrop {
   font-size: 0.9rem;
 }
 
+.skill-highlights,
+.skill-projects {
+  margin-top: 5px;
+}
+
 .skill-highlights ul {
   padding-left: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 8px 20px;
+  gap: 13px 20px;
 }
 
 .skill-projects {
@@ -1358,6 +1397,10 @@ footer {
   .skills-card {
     aspect-ratio: 1 / 1;
     min-height: 0;
+  }
+
+  .skills-card.ga {
+    display: none;
   }
 
   .contact-text-wrapper {

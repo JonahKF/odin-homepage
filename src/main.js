@@ -58,14 +58,15 @@ const screenController = () => {
     card.addEventListener("click", () => {
       const cardClass = Array.from(card.classList).find((cls) =>
         [
+          "html",
+          "css",
           "js",
-          "python",
-          "git",
           "ga",
           "tableau",
           "looker",
           "ads",
           "bigquery",
+          "replit",
         ].includes(cls),
       );
 
