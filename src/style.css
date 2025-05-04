@@ -488,6 +488,8 @@ h1.name-header {
   z-index: -1;
 }
 
+nav,
+.profile-img-container,
 .name-and-blurb-container,
 .about-me-wrapper {
   animation: 1.5s fadeInDown;
@@ -747,8 +749,8 @@ p > a.profile-contact-btn:hover::before {
 
 .name-card p .lang-text[lang="ja"] {
   font-size: clamp(0.68rem, 1.4vw, 0.89rem);
-  width: 110%;
-  left: -5%;
+  width: 105%;
+  left: -2%;
   position: relative;
   text-align: start;
 }
@@ -815,7 +817,6 @@ p > a.profile-contact-btn:hover::before {
 .down-arrow {
   font-size: 2em;
 }
-/* Add Doshisha next to down arrow, in absolute cell */
 
 h2 {
   font-family: "Monomakh";
@@ -957,6 +958,37 @@ dialog::backdrop {
   background: rgba(0, 0, 0, 0.3);
 }
 
+dialog {
+  transition:
+    display 300ms allow-discrete,
+    overlay 300ms allow-discrete;
+
+  animation: close 200ms forwards;
+  &[open] {
+    animation: open 200ms forwards;
+  }
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    top: 20%;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    top: 20%;
+  }
+}
+
 .skills-modal {
   cursor: default;
   position: fixed;
@@ -1062,12 +1094,15 @@ dialog::backdrop {
   gap: 25px;
 }
 
+.modal-body h4 {
+  margin-bottom: 8px;
+}
+
 .modal-body h4,
 .modal-body h4 > span {
   font-family: "Monomakh";
   font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 8px;
 }
 
 .modal-body h4 > span.lang-text[lang="ja"] {

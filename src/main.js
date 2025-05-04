@@ -20,7 +20,10 @@ const screenController = () => {
     }
   };
 
-  languageToggle();
+  // Initiate toggle
+  if (navigator.language !== "ja" || navigator.language !== "ja-JP") {
+    languageToggle();
+  }
 
   const languageToggleBtn = document.querySelector(".btn-language-switch");
   languageToggleBtn.addEventListener("click", languageToggle);
