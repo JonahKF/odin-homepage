@@ -640,7 +640,7 @@ p > a.profile-contact-btn:hover::before {
 }
 
 .about-card .lang-text[lang="ja"] {
-  font-size: clamp(0.5rem, 1.2vw, 0.92rem);
+  font-size: clamp(0.5rem, 1.1vw, 0.92rem);
   text-align: start;
   margin-top: -2px;
 }
@@ -683,7 +683,7 @@ p > a.profile-contact-btn:hover::before {
   flex-direction: column;
   text-align: start;
   gap: 14px;
-  font-size: 1rem;
+  font-size: clamp(0.5rem, 1.2vw, 1rem);
 }
 
 .hobbies-card > ul > li > i {
@@ -743,7 +743,7 @@ p > a.profile-contact-btn:hover::before {
 }
 
 .name-card p {
-  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
   /* width: 90%; */
 }
 
@@ -958,6 +958,10 @@ dialog::backdrop {
   background: rgba(0, 0, 0, 0.3);
 }
 
+body:has(dialog:modal) {
+  overflow: hidden;
+}
+
 dialog {
   transition:
     display 300ms allow-discrete,
@@ -1007,17 +1011,40 @@ dialog {
   color: var(--text);
   background: radial-gradient(
     106.42% 76.6% at 80% 32.26%,
-    rgba(93.7%, 92.2%, 91.8%, 0),
-    rgba(2, 5, 11, 0.517)
+    rgba(15, 15, 15, 0.917),
+    rgba(2, 5, 11, 0.917)
   );
   border-radius: 12px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   overflow: hidden;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+}
+
+.skills-modal {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.1);
+}
+
+.skills-modal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.skills-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.skills-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.skills-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .skills-modal > button {
@@ -1157,8 +1184,12 @@ dialog {
   gap: 15px;
 }
 
+.skill-projects > h4 {
+  margin-bottom: 2px;
+}
+
 .project-item {
-  background: rgba(93.7%, 92.2%, 91.8%, 0.05);
+  background: rgba(2, 5, 11, 0.217);
   border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.15);
   border-radius: 5px;
   padding: 15px;
@@ -1167,6 +1198,44 @@ dialog {
 .project-item h5 {
   font-size: 1.1rem;
   margin-bottom: 5px;
+}
+
+.project-item table {
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.15);
+  background: radial-gradient(
+    106.42% 76.6% at 80% 32.26%,
+    rgba(93.7%, 92.2%, 91.8%, 0),
+    rgba(2, 5, 11, 0.217)
+  );
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.project-item table td {
+  height: 100px;
+  border-radius: 5px;
+}
+
+.project-item table .first-row {
+  width: 150px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.project-item table td:not(.first-row) {
+  padding: 15px 10px 15px 15px;
+  background: rgba(93.7%, 92.2%, 91.8%, 0.05);
+}
+
+.project-item
+  table
+  tr:nth-child(2)
+  > td:nth-child(2)
+  > span.lang-text[lang="ja"] {
+  position: relative;
+  left: -9px;
 }
 
 .contact-wrapper {
