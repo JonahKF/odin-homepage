@@ -1256,6 +1256,34 @@ dialog {
   left: -9px;
 }
 
+ul:has(.repo-list-item) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.repo-list-item {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+  border-radius: 1px;
+  height: 40px;
+}
+
+.repo-list-item > h6 {
+  font-size: 1.1rem;
+}
+
+.repo-list-item > .git-link-container {
+  background: lightgray;
+  color: #000;
+  border-radius: 20px;
+  padding-inline: 1.4ch;
+  padding-bottom: 2px;
+  margin-inline-end: 1ch;
+}
+
 .contact-wrapper {
   width: 100%;
   /* margin-top: 125px; */
