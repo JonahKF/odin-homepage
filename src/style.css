@@ -736,10 +736,10 @@ p > a.profile-contact-btn:hover::before {
 }
 
 .name-card h4 .lang-text[lang="ja"] {
-  font-size: clamp(0.7rem, 1.8vw, 1.3rem);
+  font-size: clamp(0.7rem, 1.5vw, 1.2rem);
   position: relative;
   margin-top: 2px;
-  /* left: -6%; */
+  /* left: -20px; */
 }
 
 .name-card p {
@@ -946,12 +946,30 @@ h2 {
   opacity: 1;
 }
 
-.skills-card i {
+.skills-card i:first-child {
   font-size: 5.3rem;
 }
 
 .skills-card img {
   height: 92px;
+}
+
+.skills-card > .fa-plus {
+  position: absolute;
+  top: 78%;
+  left: 84%;
+  color: rgba(93.7%, 92.2%, 91.8%, 0.3);
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 300ms ease;
+}
+
+.skills-card:hover > .fa-plus {
+  color: #000;
+  border-color: rgba(239, 235, 234, 0.75);
+  background-color: rgba(239, 235, 234, 0.75);
+  transition: all 300ms ease;
 }
 
 dialog::backdrop {
