@@ -28,11 +28,22 @@ const screenController = () => {
   const languageToggleBtn = document.querySelector(".btn-language-switch");
   languageToggleBtn.addEventListener("click", languageToggle);
 
+  const contactBtn = document.querySelector(".profile-contact-btn");
+  contactBtn.addEventListener("click", () => {
+    const contactModal = document.querySelector(".contact-modal");
+    contactModal.showModal();
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "t" || event.key === "T") {
       const checkbox = document.getElementById("language_mode");
       checkbox.checked = !checkbox.checked;
       languageToggle();
+    }
+
+    if (event.key === "c" || event.key === "C") {
+      const contactModal = document.querySelector(".contact-modal");
+      contactModal.showModal();
     }
   });
 

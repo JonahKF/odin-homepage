@@ -499,12 +499,13 @@ nav,
   width: auto;
 }
 
-p > a.profile-contact-btn {
+p > button.profile-contact-btn {
   margin-top: 3px;
 }
 
-.blurb > p > a {
+.blurb > p > button {
   position: relative;
+  color: var(--text);
   background: radial-gradient(
     36.42% 76.6% at 50% 32.26%,
     rgba(93.7%, 92.2%, 91.8%, 0.1),
@@ -520,7 +521,7 @@ p > a.profile-contact-btn {
   overflow: hidden;
 }
 
-p > a.profile-contact-btn::before {
+p > button.profile-contact-btn::before {
   content: "";
   position: absolute;
   top: 0;
@@ -537,18 +538,18 @@ p > a.profile-contact-btn::before {
   z-index: 0;
 }
 
-.blurb > p > a > i,
-.blurb > p > a > kbd {
+.blurb > p > button > i,
+.blurb > p > button > kbd {
   position: relative;
   z-index: 1;
 }
 
-.blurb > p > a > i {
+.blurb > p > button > i {
   top: 4.3px;
   left: 1px;
 }
 
-.blurb > p > a > kbd {
+.blurb > p > button > kbd {
   aspect-ratio: 1 / 1;
   width: 24px;
   display: flex;
@@ -576,7 +577,7 @@ p > a.profile-contact-btn::before {
   transition: 300ms;
 }
 
-p > a.profile-contact-btn:hover::before {
+p > button.profile-contact-btn:hover::before {
   opacity: 1;
   transition: opacity 300ms;
 }
@@ -957,7 +958,7 @@ h2 {
 .skills-card > .fa-plus {
   position: absolute;
   top: 78%;
-  left: 84%;
+  right: 15px;
   color: rgba(93.7%, 92.2%, 91.8%, 0.3);
   border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
   padding: 10px;
@@ -989,6 +990,8 @@ dialog {
   &[open] {
     animation: open 200ms forwards;
   }
+
+  outline: 0;
 }
 
 @keyframes open {
@@ -1065,7 +1068,8 @@ dialog {
   background: rgba(255, 255, 255, 0.7);
 }
 
-.skills-modal > button {
+.skills-modal > button,
+.contact-modal > button {
   cursor: pointer;
   position: absolute;
   right: 25px;
@@ -1080,17 +1084,29 @@ dialog {
   justify-content: center;
   align-items: center;
   z-index: 5;
+  outline: 0;
 }
 
-.skills-modal > button > i {
+.skills-modal > button > i,
+.contact-modal > button > i {
   font-size: 1.4em;
-  color: #887f75;
-  transition: all 300ms;
+  color: rgba(93.7%, 92.2%, 91.8%, 0.3);
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
+  border-radius: 50%;
+  transition: color 300ms ease;
 }
 
-.skills-modal > button:hover > i {
+.skills-modal > button:focus > i,
+.contact-modal > button:focus > i {
+  outline: 0;
+  border: 2px solid #3f8ec5;
+  transform: translate(1px, -0px);
+}
+
+.skills-modal > button:hover > i,
+.contact-modal > button:hover > i {
   color: var(--text);
-  transition: all 300ms;
+  transition: color 300ms ease;
 }
 
 .modal-content {
@@ -1256,6 +1272,10 @@ dialog {
   left: -9px;
 }
 
+td ul {
+  margin-left: -39px;
+}
+
 ul:has(.repo-list-item) {
   display: flex;
   flex-direction: column;
@@ -1276,17 +1296,26 @@ ul:has(.repo-list-item) {
 }
 
 .repo-list-item > .git-link-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
   background: lightgray;
   color: #000;
   border-radius: 20px;
+  height: 24px;
   padding-inline: 1.4ch;
   padding-bottom: 2px;
   margin-inline-end: 1ch;
 }
 
+.github-link-icon > img,
+.live-link-icon > i {
+  height: 23px;
+  width: 23px;
+}
+
 .contact-wrapper {
   width: 100%;
-  /* margin-top: 125px; */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1298,7 +1327,7 @@ ul:has(.repo-list-item) {
   justify-content: center;
   gap: 6px;
   height: 90px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background: radial-gradient(
     126.42% 76.6% at 50% 32.26%,
     rgba(93.7%, 92.2%, 91.8%, 0.1),
@@ -1310,13 +1339,61 @@ ul:has(.repo-list-item) {
   padding: 10px 20px 11px 20px;
 }
 
+.email-copy-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  transition: color 200ms ease;
+}
+
+.email-copy-container:hover {
+  color: #3f8ec5;
+  transition: color 200ms ease;
+}
+
 #email-text-conversion {
   font-weight: 600;
+  font-size: 1.2em;
+}
+
+.contact-modal {
+  cursor: default;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 66%;
+  max-width: 660px;
+  height: 360px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: var(--text);
+  background: radial-gradient(
+    106.42% 76.6% at 80% 32.26%,
+    rgba(15, 15, 15, 0.917),
+    rgba(2, 5, 11, 0.917)
+  );
+  border-radius: 12px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.contact-modal-content {
+  display: flex;
+  flex-direction: row;
 }
 
 footer {
   width: 100%;
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   font-style: italic;
   display: flex;
   align-items: center;
@@ -1324,7 +1401,7 @@ footer {
   text-align: center;
   position: absolute;
   bottom: 0;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 1280px) {
