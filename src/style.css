@@ -975,6 +975,7 @@ h2 {
 
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.3);
+  transition: background 300ms ease;
 }
 
 body:has(dialog:modal) {
@@ -1378,8 +1379,6 @@ ul:has(.repo-list-item) {
 }
 
 .contact-modal {
-  display: flex;
-  flex-direction: row;
   cursor: default;
   position: fixed;
   z-index: 100;
@@ -1414,7 +1413,7 @@ ul:has(.repo-list-item) {
 }
 
 .contact-modal-logo {
-  height: 100%;
+  height: 360px;
   width: 155px;
   display: flex;
   flex-direction: column;
@@ -1614,6 +1613,7 @@ footer {
   html,
   body {
     width: 100vw;
+    overflow-x: hidden;
   }
 
   main {
@@ -1706,6 +1706,10 @@ footer {
     font-size: 1.1rem;
   }
 
+  .about-card .lang-text[lang="ja"] {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+  }
+
   .about-card li {
     font-size: clamp(0.75rem, 1.2vw, 0.9rem);
   }
@@ -1720,14 +1724,70 @@ footer {
     margin-bottom: 3px;
   }
 
+  .name-card h4 :nth-child(3) {
+    font-size: clamp(0.9rem, 1.4vw, 1.3rem) !important;
+  }
+
+  .name-card h4 .lang-text[lang="ja"],
+  .hometown-card p .lang-text[lang="ja"] {
+    font-size: clamp(1.3rem, 1.2vw, 1.5rem);
+    margin-left: 0;
+  }
+
+  .name-card p .lang-text[lang="ja"] {
+    font-size: clamp(0.9rem, 1.4vw, 1.3rem);
+    width: 100%;
+    left: 0;
+  }
+
   .name-card :nth-child(4),
   .name-card :nth-child(5) {
     display: none;
   }
 
+  .education-card .college-section {
+    padding-left: 20px;
+  }
+
+  .education-card > .college-section:nth-child(2) {
+    margin-bottom: 30px;
+  }
+
+  .education-card h4 {
+    margin-bottom: -2px;
+  }
+
+  .education-card h4,
+  .college-section > * {
+    text-align: start;
+  }
+
+  .education-card h4 .lang-text,
+  .education-card h4 .lang-text[lang="ja"] {
+    font-size: clamp(1.3rem, 1.2vw, 1.5rem);
+  }
+
+  .college-section > p > span {
+    font-weight: 200;
+    font-size: 0.9em;
+    margin-left: 8px;
+  }
+
+  .down-arrow {
+    display: none;
+  }
+
+  .hometown-card > p:nth-child(3) > span:nth-child(2) {
+    font-size: clamp(0.95rem, 1.4vw, 1.3rem) !important;
+  }
+
   .hobbies-card ul {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .hobbies-card ul li span {
+    font-size: clamp(0.95rem, 1.4vw, 1.3rem) !important;
   }
 
   .fun-card {
@@ -1756,6 +1816,14 @@ footer {
     display: none;
   }
 
+  .skills-card img {
+    height: 70px;
+  }
+
+  .skills-card i:first-child {
+    font-size: 4.35rem;
+  }
+
   .skills-card > .fa-plus {
     top: 82%;
     right: 8px;
@@ -1765,6 +1833,33 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
+  }
+
+  dialog::backdrop {
+    background: radial-gradient(
+      106.42% 76.6% at 80% 32.26%,
+      rgba(15, 15, 15, 0),
+      rgba(2, 5, 11, 0)
+    );
+  }
+
+  .skills-modal {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    margin-top: 9.8vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 0;
+    border: 0;
+    background: radial-gradient(
+      126.42% 76.6% at 50% 82.26%,
+      rgba(2, 5, 11, 0.93),
+      rgba(35, 35, 35, 1)
+    );
+    border-top: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
+    backdrop-filter: blur(2px);
+    border-radius: 15px 15px 0 0;
   }
 
   .contact-text-wrapper {
@@ -1782,7 +1877,6 @@ footer {
   .contact-modal {
     height: 60%;
     width: 90%;
-    flex-direction: column;
   }
 
   .contact-modal-content {
@@ -1792,14 +1886,14 @@ footer {
 
   .contact-modal-logo {
     width: 100%;
-    height: 160px;
+    height: 130px;
     border: 0;
     border-bottom: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.1);
   }
 
   .contact-content-container {
     padding: 0;
-    padding-top: 50px;
+    padding-top: 30px;
     text-align: center;
   }
 
