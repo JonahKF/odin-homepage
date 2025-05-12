@@ -1,7 +1,7 @@
 import "./style.css";
 
 const screenController = () => {
-  console.log("js loaded");
+  // console.log("js loaded");
 
   const languageToggle = () => {
     const isJapanese = document.getElementById("language_mode").checked;
@@ -84,8 +84,6 @@ const screenController = () => {
         ].includes(cls),
       );
 
-      console.log("Click!");
-
       const dialog = document.querySelector(`dialog#${cardClass}`);
 
       if (dialog) {
@@ -121,7 +119,7 @@ const screenController = () => {
   const copiedThumb = document.querySelector(".copied-thumb");
   const copiedThumbModal = document.querySelector(".copied-thumb.in-modal");
 
-  copyButton.addEventListener("click", (e) => {
+  copyButton.addEventListener("click", () => {
     navigator.clipboard.writeText(emailText.textContent);
     console.log(`Copied ${emailText.textContent} to clipboard.`);
 
@@ -133,7 +131,7 @@ const screenController = () => {
     }, 1000);
   });
 
-  copyButtonModal.addEventListener("click", (e) => {
+  copyButtonModal.addEventListener("click", () => {
     navigator.clipboard.writeText(emailText.textContent);
     console.log(`Copied ${emailText.textContent} to clipboard.`);
 
