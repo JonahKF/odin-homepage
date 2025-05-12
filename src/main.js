@@ -112,6 +112,38 @@ const screenController = () => {
       }
     });
   });
+
+  const emailText = document.querySelector("#email-text-conversion");
+  const copyButton = document.querySelector(".email-copy-container");
+  const copyButtonModal = document.querySelector(
+    ".email-copy-container.in-modal",
+  );
+  const copiedThumb = document.querySelector(".copied-thumb");
+  const copiedThumbModal = document.querySelector(".copied-thumb.in-modal");
+
+  copyButton.addEventListener("click", (e) => {
+    navigator.clipboard.writeText(emailText.textContent);
+    console.log(`Copied ${emailText.textContent} to clipboard.`);
+
+    copiedThumb.textContent = "Copied!";
+    copiedThumb.classList.add("show");
+
+    setTimeout(() => {
+      copiedThumb.classList.remove("show");
+    }, 1000);
+  });
+
+  copyButtonModal.addEventListener("click", (e) => {
+    navigator.clipboard.writeText(emailText.textContent);
+    console.log(`Copied ${emailText.textContent} to clipboard.`);
+
+    copiedThumbModal.textContent = "Copied!";
+    copiedThumbModal.classList.add("show");
+
+    setTimeout(() => {
+      copiedThumbModal.classList.remove("show");
+    }, 1000);
+  });
 };
 
 document.addEventListener("DOMContentLoaded", screenController);

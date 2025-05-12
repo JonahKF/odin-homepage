@@ -641,7 +641,7 @@ p > button.profile-contact-btn:hover::before {
 }
 
 .about-card .lang-text[lang="ja"] {
-  font-size: clamp(0.5rem, 1.1vw, 0.92rem);
+  font-size: clamp(0.68rem, 1.4vw, 0.89rem);
   text-align: start;
   margin-top: -2px;
 }
@@ -658,13 +658,13 @@ p > button.profile-contact-btn:hover::before {
 }
 
 .work-card a {
-  text-decoration: underline;
-  transition: 200ms;
+  text-decoration: none;
+  transition: color 200ms ease;
 }
 
 .work-card a:hover {
-  color: var(--grey-black);
-  transition: 200ms;
+  color: #3f8ec5;
+  transition: color 200ms ease;
 }
 
 .hobbies-card {
@@ -804,7 +804,7 @@ p > button.profile-contact-btn:hover::before {
 }
 
 .education-card h4 .lang-text[lang="ja"] {
-  font-size: clamp(0.7rem, 1.3vw, 1.2rem);
+  font-size: clamp(0.7rem, 1.5vw, 1.2rem);
   position: relative;
   left: -6px;
 }
@@ -1354,10 +1354,12 @@ ul:has(.repo-list-item) {
 
 #email-text-conversion {
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1.1rem;
 }
 
 .contact-modal {
+  display: flex;
+  flex-direction: row;
   cursor: default;
   position: fixed;
   z-index: 100;
@@ -1373,14 +1375,14 @@ ul:has(.repo-list-item) {
   color: var(--text);
   background: radial-gradient(
     106.42% 76.6% at 80% 32.26%,
-    rgba(15, 15, 15, 0.917),
-    rgba(2, 5, 11, 0.917)
+    rgba(15, 15, 15, 0.87),
+    rgba(2, 5, 11, 0.91)
   );
   border-radius: 12px;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(2px);
-  border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  border: 1px solid rgba(255, 230, 196, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(255, 230, 196, 0.07);
   overflow: hidden;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
@@ -1389,6 +1391,109 @@ ul:has(.repo-list-item) {
 .contact-modal-content {
   display: flex;
   flex-direction: row;
+}
+
+.contact-modal-logo {
+  height: 100%;
+  width: 155px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  padding-top: 30px;
+  background: radial-gradient(
+    126.42% 76.6% at 50% 32.26%,
+    rgba(93.7%, 92.2%, 91.8%, 0.1),
+    rgba(2, 5, 11, 0.13)
+  );
+  border-right: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.1);
+}
+
+.contact-modal-logo > img {
+  height: 50px;
+}
+
+.contact-modal-logo > .style-bar {
+  height: 1px;
+  width: 90px;
+  background: linear-gradient(90deg, #ffe6c4 0%, #998a76 50%);
+}
+
+.contact-content-container {
+  height: 100%;
+  padding-top: 53px;
+  padding-left: 43px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-content-container > .name-text {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.contact-content-container > .title-text {
+  font-size: 1rem;
+  font-weight: 200;
+  position: relative;
+  top: -7px;
+  margin-bottom: 40px;
+}
+
+.contact-content-container .email-copy-container {
+  position: relative;
+  bottom: -1px;
+}
+
+.social-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-container > a > img {
+  height: 50px;
+  filter: invert(1);
+  transition: filter 200ms ease;
+}
+
+.social-container > a:hover > img {
+  filter: invert(0.5);
+  transition: filter 200ms ease;
+}
+
+.copied-thumb {
+  background-color: #3f8ec5;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  transform: translateY(-5px);
+  z-index: 1000;
+}
+
+dialog .copied-thumb {
+  margin-left: 5px;
+}
+
+.contact-wrapper .copied-thumb {
+  margin-left: 4px;
+}
+
+.contact-wrapper .copied-thumb.show {
+  transform: translateY(-1px);
+}
+
+.copied-thumb.show {
+  opacity: 1 !important;
+  transform: translateY(1px);
 }
 
 footer {
