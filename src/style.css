@@ -486,6 +486,7 @@ h1.name-header {
   height: 280px;
   width: 280px;
   z-index: -1;
+  animation: pulse 10s infinite;
 }
 
 nav,
@@ -501,6 +502,7 @@ nav,
 
 p > button.profile-contact-btn {
   margin-top: 3px;
+  width: 188px;
 }
 
 .blurb > p > button {
@@ -516,6 +518,7 @@ p > button.profile-contact-btn {
   border-radius: 3px;
   padding: 5px 12px 5px 12px;
   display: inline-flex;
+  justify-content: space-between;
   gap: 14px;
   cursor: pointer;
   overflow: hidden;
@@ -1671,6 +1674,7 @@ footer {
     height: 200px;
     max-height: 200px;
     width: 200px;
+    animation: none;
   }
 
   .name-and-blurb-container {
@@ -1803,7 +1807,7 @@ footer {
 
   .skills-card-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 200px);
+    grid-template-rows: repeat(4, auto);
     gap: 18px;
   }
 
@@ -1860,6 +1864,45 @@ footer {
     border-top: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.3);
     backdrop-filter: blur(2px);
     border-radius: 15px 15px 0 0;
+  }
+
+  .modal-body {
+    width: 110%;
+    align-self: center;
+  }
+
+  .modal-body h4,
+  .modal-body h4 > span {
+    font-size: 1.8rem;
+  }
+
+  .skill-experience p {
+    /* padding-left: 8px; */
+  }
+
+  .skill-highlights ul {
+    gap: 6px;
+    margin-top: -1px;
+    padding-left: 0;
+  }
+
+  .modal-body .skill-projects > .project-item {
+    width: 110%;
+    align-self: center;
+  }
+
+  .project-item h5 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .project-item table span {
+    font-size: 0.85rem;
+  }
+
+  .project-item table .first-row {
+    width: 30%;
+    padding: 10px;
   }
 
   .contact-text-wrapper {
@@ -1931,5 +1974,34 @@ footer {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    top: 50px;
+    right: 0px;
+    transform: scale(1);
+  }
+  25% {
+    top: -15px;
+    right: -15px;
+    transform: scale(1.1);
+  }
+  50% {
+    top: -25px;
+    right: 10px;
+    transform: scale(1);
+  }
+  75% {
+    top: 25px;
+    right: 50px;
+    transform: scale(1.2);
+  }
+
+  100% {
+    top: 50px;
+    right: 0px;
+    transform: scale(1);
   }
 }
