@@ -41,7 +41,13 @@ const screenController = () => {
       languageToggle();
     }
 
-    if (event.key === "c" || event.key === "C") {
+    if (
+      (event.key === "c" || event.key === "C") &&
+      !event.ctrlKey &&
+      !event.shiftKey &&
+      !event.altKey &&
+      !event.metaKey
+    ) {
       const contactModal = document.querySelector(".contact-modal");
       contactModal.showModal();
     }
@@ -51,8 +57,12 @@ const screenController = () => {
   kbds.forEach((kbd) => {
     document.addEventListener("keydown", (event) => {
       if (
-        event.key === kbd.textContent.toLowerCase() ||
-        event.key === kbd.textContent.toUpperCase()
+        (event.key === kbd.textContent.toLowerCase() ||
+          event.key === kbd.textContent.toUpperCase()) &&
+        !event.ctrlKey &&
+        !event.shiftKey &&
+        !event.altKey &&
+        !event.metaKey
       ) {
         kbd.style.background = "#859900";
         kbd.style.color = "var(--bg)";

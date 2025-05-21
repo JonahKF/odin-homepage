@@ -99,9 +99,9 @@ h6 {
 
 * .lang-text[lang="ja"] {
   font-family:
-    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック Medium",
-    "Yu Gothic Medium", 游ゴシック体, YuGothic, メイリオ, Meiryo, Osaka,
-    "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    "SF Pro JP", "SF Pro Display", "SF Pro Icons", "Hiragino Kaku Gothic Pro",
+    "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック",
+    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 .monomakh-regular {
@@ -623,6 +623,11 @@ p > button.profile-contact-btn:hover::before {
   position: relative;
 }
 
+.about-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
 .about-card h3 {
   font-family: "Monomakh";
   border-radius: 8px 8px 0 0;
@@ -716,18 +721,47 @@ p > button.profile-contact-btn:hover::before {
   font-size: 0.8em;
 }
 
-.hometown-card > .map-container {
+.hometown-card > .location-container {
   border: 1px solid rgba(93.7%, 92.2%, 91.8%, 0.15);
   border-radius: 8px;
   margin-top: 9px;
-  height: 120px;
+  height: 70px;
   width: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   text-align: center;
   justify-content: center;
-  font-size: 0.65rem;
-  font-style: italic;
+}
+
+.location-container .lang-text[lang="en"] {
+  font-size: 1.3rem;
+}
+
+.location-container .lang-text[lang="ja"] {
+  font-size: 1.3rem;
+}
+
+.light-indicator {
+  background-color: #1bbe8d;
+  border-radius: 50%;
+  display: inline-block;
+  height: 11px;
+  width: 11px;
+  margin-right: 18px;
+  position: relative;
+}
+
+.light-indicator::before {
+  animation: ping 2s cubic-bezier(0, 0, 0.3, 1) infinite;
+  background-color: #1bbe8d;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 100%;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
 }
 
 .name-card h4 {
@@ -944,6 +978,11 @@ h2 {
     rgba(93.7%, 92.2%, 91.8%, 0.1),
     rgba(242, 98, 8, 0.31)
   );
+}
+
+.skills-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .skills-card:hover::before {
@@ -1286,6 +1325,16 @@ dialog {
   > span.lang-text[lang="ja"] {
   position: relative;
   left: -9px;
+}
+
+.project-item
+  table
+  tr:nth-child(2)
+  > td:nth-child(2)
+  > span.lang-text[lang="ja"]
+  > ul {
+  position: relative;
+  left: 9px;
 }
 
 td ul {
@@ -1691,6 +1740,11 @@ footer {
     animation: none;
   }
 
+  p > button.profile-contact-btn {
+    width: auto;
+    justify-content: start;
+  }
+
   .about-me-grid {
     display: flex;
     flex-direction: column;
@@ -1959,6 +2013,10 @@ footer {
     gap: 20px;
   }
 
+  .contact-text-wrapper > div {
+    flex-direction: column;
+  }
+
   footer {
     font-size: 0.7rem;
     margin-bottom: 5px;
@@ -2003,5 +2061,13 @@ footer {
     top: 50px;
     right: 0px;
     transform: scale(1);
+  }
+}
+
+@keyframes ping {
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(3);
   }
 }
