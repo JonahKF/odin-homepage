@@ -774,19 +774,20 @@ p > button.profile-contact-btn:hover::before {
 }
 
 .name-card h4 .lang-text[lang="ja"] {
-  font-size: clamp(0.7rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.7rem, 1.1vw, 1.1rem);
   position: relative;
   margin-top: 2px;
+  margin-right: -2px;
   /* left: -20px; */
 }
 
 .name-card p {
-  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  font-size: clamp(0.68rem, 1.4vw, 0.89rem);
   /* width: 90%; */
 }
 
 .name-card p .lang-text[lang="ja"] {
-  font-size: clamp(0.68rem, 1.4vw, 0.89rem);
+  font-size: clamp(0.68rem, 1.1vw, 0.8rem);
   width: 105%;
   left: -2%;
   position: relative;
@@ -841,7 +842,7 @@ p > button.profile-contact-btn:hover::before {
 }
 
 .education-card h4 .lang-text[lang="ja"] {
-  font-size: clamp(0.7rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.7rem, 1.3vw, 1.2rem);
   position: relative;
   left: -6px;
 }
@@ -1085,10 +1086,11 @@ dialog {
   padding: 0;
   border: none;
   color: var(--text);
-  background: radial-gradient(
-    106.42% 76.6% at 80% 32.26%,
-    rgba(15, 15, 15, 0.917),
-    rgba(2, 5, 11, 0.917)
+  background: linear-gradient(
+    144deg,
+    hsla(0, 0%, 20%, 0.5),
+    hsla(0, 0%, 0%, 0.98),
+    hsla(0, 0%, 0%, 1) 45%
   );
   border-radius: 12px;
   backdrop-filter: blur(2px);
@@ -1164,6 +1166,12 @@ dialog {
   transition: color 300ms ease;
 }
 
+.skills-modal p > span,
+.skills-modal td:not(.first-row) > span,
+.skills-modal ul li {
+  color: #d0d6e0;
+}
+
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -1217,7 +1225,7 @@ dialog {
 .modal-body h4,
 .modal-body h4 > span {
   font-family: "Monomakh";
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
