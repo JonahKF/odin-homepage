@@ -18,8 +18,8 @@
       crossorigin="anonymous"
     ></script>
     <title>Jonah - Web Design & Digital Marketing in Japan</title>
-    <script type="module" crossorigin src="/assets/index-CWM9Iy1X.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BvSlFlBG.css" />
+    <!-- <script type="module" crossorigin src="/assets/index-CWM9Iy1X.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BvSlFlBG.css" /> -->
   </head>
 
   <body>
@@ -103,7 +103,7 @@
               <h1 class="name-header">
                 <span lang="en" class="lang-text">Hi, I'm Jonah.</span>
                 <span lang="ja" class="lang-text">
-                  こんにちは！ジョナと申します。
+                  こんにちは！<span class="no-break">ジョナ</span>と申します。
                 </span>
               </h1>
               <div class="blurb">
@@ -2083,5 +2083,8 @@
         <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
       </filter>
     </svg>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/email-text-conversion.js"></script>
   </body>
 </html>
